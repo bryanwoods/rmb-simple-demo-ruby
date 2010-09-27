@@ -31,7 +31,7 @@
     <input type='submit' />
   </form>
   <form action='/drops/create' method='post'>
-    <input name='dropname' type='hidden' value='random' />
+    <input name='dropname' type='hidden' value="<%= Digest::SHA1.hexdigest(Time.now.to_s)[0..9] %>" />
     <input type='submit' value='Generate Random Drop' />
   </form>
   <% unless @drops["drops"].nil? %>
